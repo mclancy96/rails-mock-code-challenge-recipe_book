@@ -10,17 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2017_09_18_141400) do
-  create_table "sweets", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2025_08_26_122249) do
+  create_table "chef_recipes", force: :cascade do |t|
+    t.integer "chef_id", null: false
+    t.integer "recipe_id", null: false
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chef_id"], name: "index_chef_recipes_on_chef_id"
+    t.index ["recipe_id"], name: "index_chef_recipes_on_recipe_id"
+  end
+
+  create_table "chefs", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "vendors", force: :cascade do |t|
+  create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
+  add_foreign_key "chef_recipes", "chefs"
+  add_foreign_key "chef_recipes", "recipes"
 end
