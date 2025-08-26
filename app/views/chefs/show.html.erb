@@ -4,7 +4,7 @@
 
 <h3>Recipes associated:</h3>
 <ul>
-  <% @chef.recipes.each do |recipe| %>
+  <% @chef.recipes.distinct.each do |recipe| %>
     <li><%= link_to recipe.name, recipe %></li>
   <% end %>
 </ul>
@@ -13,3 +13,9 @@
 
 <%= render 'form' %>
 <br>
+<h3>Comments:</h3>
+<ul>
+  <% @chef.chef_recipes.select(&:persisted?).each do |cr| %>
+    <li><%= cr.recipe.name %> : <%= cr.comment %> </li>
+  <% end %>
+</ul>

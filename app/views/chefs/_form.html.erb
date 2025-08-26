@@ -1,10 +1,10 @@
-<h3>Sweet-Comments Section</h3>
+<h3>Chef-Comments Section</h3>
 
 <%= form_with model: @chef, local: true do |f| %>
 
   <% if @chef.errors.any? %>
     <div id="error_explanation">
-      <h5><%= pluralize(@chef.errors.count, "error") %> prohibited this vendor from being saved:</h5>
+      <h5><%= pluralize(@chef.errors.count, "error") %> prohibited this comment from being saved:</h5>
       <ul>
         <% @chef.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -13,9 +13,9 @@
     </div>
   <% end %> 
 
-  <%= f.fields_for :vendor_sweets, @new_chef_recipe_comment do |cr| %>
+  <%= f.fields_for :chef_recipes, @new_chef_recipe_comment do |cr| %>
     <h3>Comment</h3>
-      <%= cr.collection_select :recipe_id, @chef.recipes, :id, :name, { prompt: "Select a recipe" } %>
+      <%= cr.collection_select :recipe_id, @chef.recipes.distinct, :id, :name, { prompt: "Select a recipe" } %>
       <%= cr.text_field :comment, placeholder: "Enter comment" %>
     <% end %>
   <%= f.submit "Add Comment" %>
