@@ -1,0 +1,15 @@
+<p id="recipe-info"><%= notice %></p>
+
+<h3>Recipe Info: <%= @recipe.name %></h3>
+
+<h3>Chefs associated:</h3>
+<ul>
+  <% @recipe.chefs.each do |chef| %>
+    <li><%= link_to chef.name, chef %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<%#= render 'form' %>
+<br>
