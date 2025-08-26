@@ -6,11 +6,25 @@ class ChefsController < ApplicationController
   end
 
   def show
+    @new_chef_recipes_comment = @chef.chef_recipes.build
+  end
+
+  def update
+    if @vendor.update(vendor_params)
+      redirect_to @chef
+    else
+      @new_chef_recipes_comment = @chef.chef_recipes.build
+      render :show
+    end
   end
 
   private
 
   def set_chef
       @chef = Chef.find(params[:id])
+  end
+
+  def vendor_params
+    params.require(:chef).permit(chef_recipes_attributes: [:recipe_id, :chef_id, :comment])
   end
 end
