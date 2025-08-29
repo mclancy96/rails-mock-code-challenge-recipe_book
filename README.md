@@ -20,7 +20,7 @@ Before you begin, fork and clone this repo, run `bundle install`, `bin/rails db:
 
 The Power Ninjas have requested your help! Here at BT we tend to create lots of recipes. Especially recipes... WE LOVE RECIPES.
 
-![img](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczZydmhtc3dkZ2FvaHI4c2Zwa2F2emR6a3dmdm9ldjhrMDZqbDhwayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xnoIXebk3xYx4Q/giphy.gif)
+![chef stove](./chef_stove.png)
 
 Visiting `/recipes` will list all of the recipes. Visiting `/chefs` will list all of our recipe's chefs. The Models, Views and Controllers for the recipes and chefs resources already exist. The problem is that we don't have a way to associate all the recipes with their chefs. **Chefs can create many different recipes and recipes can be created by many different chefs.**
 
@@ -47,7 +47,7 @@ Visiting `/recipes` will list all of the recipes. Visiting `/chefs` will list al
 
 ### Hints / Tips
 
-![img](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Mm01ZmNrYXR2c3hmNGF2eXliOHR4Zmpudzk1NnF3Y2NrbW9mam10eSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/2Hz9rkFiKEb96/giphy.gif)
+![img](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczZydmhtc3dkZ2FvaHI4c2Zwa2F2emR6a3dmdm9ldjhrMDZqbDhwayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xnoIXebk3xYx4Q/giphy.gif)
 
 + Remember we want to be RESTful. What URL should show info about a particular chef? What URL should create the chef_recipe association? What controller actions are associated?
 + When creating the chef_recipe association think about the various ways [Rails allows us to define associations between models](http://guides.rubyonrails.org/association_basics.html)
