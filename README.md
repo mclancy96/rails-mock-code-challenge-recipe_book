@@ -1,59 +1,60 @@
-# Rails Assessment
 
-It's time to put our Rails know-how to the test.
+# Évaluation Rails
 
-## Objectives
+Il est temps de mettre à l'épreuve nos connaissances sur Rails.
+
+## Objectifs
 
 + MVC
 + REST
-+ Request/Response Cycle
-+ Form/Form Helpers
++ Cycle Requête/Réponse
++ Formulaire/Aides de formulaire
 + ActiveRecord
 + Validations
-+ Stay calm, focus and code
++ Restez calme, concentrez-vous et codez
 
-## Setup
+## Installation
 
-Before you begin, fork and clone this repo, run `bundle install`, `bin/rails db:migrate` and `bin/rails db:seed` to get started.
+Avant de commencer, fork et clonez ce dépôt, exécutez `bundle install`, `bin/rails db:migrate` et `bin/rails db:seed` pour commencer.
 
-## The Domain
+## Le Domaine
 
-The Power Ninjas have requested your help! Here at BT we tend to create lots of recipes. Especially recipes... WE LOVE RECIPES.
+Les Power Ninjas ont demandé votre aide ! Ici chez BT, nous avons tendance à créer beaucoup de recettes. Surtout des recettes... NOUS AIMONS LES RECETTES.
 
 ![chef stove](./chef_stove.png)
 
-Visiting `/recipes` will list all of the recipes. Visiting `/chefs` will list all of our recipe's chefs. The Models, Views and Controllers for the recipes and chefs resources already exist. The problem is that we don't have a way to associate all the recipes with their chefs. **Chefs can create many different recipes and recipes can be created by many different chefs.**
+Visiter `/recipes` affichera toutes les recettes. Visiter `/chefs` affichera tous les chefs de nos recettes. Les modèles, vues et contrôleurs pour les ressources recipes et chefs existent déjà. Le problème est que nous n'avons pas de moyen d'associer toutes les recettes à leurs chefs. **Les chefs peuvent créer de nombreuses recettes différentes et les recettes peuvent être créées par de nombreux chefs différents.**
 
-## Instructions / Deliverables
+## Instructions / Livrables
 
 ![img](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MGt6anU3OWE0YXBjdTNxcWg0M3p1cDcyNGh1eXE2ZGp3cjgwcTl0MCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Q5QWDBxSlrMME/giphy.gif)
 
-***To help complete this task we spell out the required steps below. Look through them carefully to get a sense of the requirements of this code challenge, then tackle them one by one.***
+***Pour vous aider à accomplir cette tâche, nous détaillons ci-dessous les étapes requises. Parcourez-les attentivement pour comprendre les exigences de ce défi de code, puis attaquez-les une par une.***
 
-1. On the chefs index page, clicking on a chef's name should take us to the chef's show view.
-2. On the recipes index page, clicking on a recipe's name should take us to the recipe's show view.
-3. Create the `chef_recipe` join table and associate chefs and recipes. (It may be helpful to use your `bin/rails console` to create some join records after database schema is set up.)
-4. On the recipe show view, include the recipe's name and have a list of all the chefs that created this recipe.
-5. On this show view, clicking on a chef should take you to that chef's show view.
-6. The chef's show view should list all the recipes they created.
-7. On the chef's show view there should be a form that will allow us to associate the recipe with a chef.
-8. The `chef_recipe` association form will allow us to:
+1. Sur la page d'index des chefs, cliquer sur le nom d'un chef doit nous amener à la vue show de ce chef.
+2. Sur la page d'index des recettes, cliquer sur le nom d'une recette doit nous amener à la vue show de cette recette.
+3. Créez la table de jointure `chef_recipe` et associez les chefs et les recettes. (Il peut être utile d'utiliser votre `bin/rails console` pour créer quelques enregistrements de jointure après la mise en place du schéma de la base de données.)
+4. Sur la vue show d'une recette, incluez le nom de la recette et une liste de tous les chefs qui ont créé cette recette.
+5. Sur cette vue show, cliquer sur un chef doit vous amener à la vue show de ce chef.
+6. La vue show du chef doit lister toutes les recettes qu'il a créées.
+7. Sur la vue show du chef, il doit y avoir un formulaire qui nous permettra d'associer la recette à un chef.
+8. Le formulaire d'association `chef_recipe` permettra de :
 
-   + Select a recipe from a dropdown.
-   + Leave a comment.
+   + Sélectionner une recette dans une liste déroulante.
+   + Laisser un commentaire.
 
-9. Make sure a user cannot create a `chef_recipe` without a comment & a recipe.
-10. After submitting this form, we should end up in the same view we were just on, but this time we should be able to see the recipe along with its comment.
+9. Assurez-vous qu'un utilisateur ne peut pas créer un `chef_recipe` sans commentaire et sans recette.
+10. Après avoir soumis ce formulaire, nous devrions rester sur la même vue, mais cette fois nous devrions pouvoir voir la recette avec son commentaire.
 
-### Hints / Tips
+### Astuces / Conseils
 
 ![img](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczZydmhtc3dkZ2FvaHI4c2Zwa2F2emR6a3dmdm9ldjhrMDZqbDhwayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xnoIXebk3xYx4Q/giphy.gif)
 
-+ Remember we want to be RESTful. What URL should show info about a particular chef? What URL should create the chef_recipe association? What controller actions are associated?
-+ When creating the chef_recipe association think about the various ways [Rails allows us to define associations between models](http://guides.rubyonrails.org/association_basics.html)
-+ Read through this documentation if your having a bit of trouble figuring out how to make the [dropdown](http://guides.rubyonrails.org/form_helpers.html#making-select-boxes-with-ease)
-+ Also remember that [Validations are very important](http://guides.rubyonrails.org/active_record_validations.html)
++ N'oubliez pas que nous voulons être RESTful. Quelle URL doit afficher les informations sur un chef particulier ? Quelle URL doit créer l'association chef_recipe ? Quelles actions de contrôleur sont associées ?
++ Lors de la création de l'association chef_recipe, pensez aux différentes manières dont [Rails nous permet de définir des associations entre modèles](http://guides.rubyonrails.org/association_basics.html)
++ Lisez cette documentation si vous avez un peu de mal à comprendre comment faire la [liste déroulante](http://guides.rubyonrails.org/form_helpers.html#making-select-boxes-with-ease)
++ Rappelez-vous aussi que [les validations sont très importantes](http://guides.rubyonrails.org/active_record_validations.html)
 
-## Submission
+## Soumission
 
 ![img](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjlmOWl0em1ibHp6ZnFwdmVncWJ4N3F4Z2xpZXp1OGRyczdpMG00aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT0CyMXdR1JaKIZkre/giphy.gif)
